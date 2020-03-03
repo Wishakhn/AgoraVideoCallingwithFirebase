@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#FDFDFD</color>
+    <color name="purple">#C80992</color>
+    <color name="grey">#ACACAE</color>
+    <color name="fadeblue">#756798</color>
+    <color name="transparent">#00FDFDFD</color>
+    <color name="violet">#6223FF</color>
+    <color name="calling">#664D6C</color>
+</resources>

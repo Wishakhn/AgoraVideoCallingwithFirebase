@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="5dp">
+    <LinearLayout
+        android:id="@+id/userlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="5">
+        <TextView
+            android:id="@+id/nametext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:layout_weight="3.5"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="20sp"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/userstatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="activestatus"
+            android:gravity="end"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/purple"/>
+        <ImageView
+            android:id="@+id/userstatusthumb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_useractive"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
