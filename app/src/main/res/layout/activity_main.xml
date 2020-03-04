@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 <LinearLayout
     android:layout_width="match_parent"
@@ -59,7 +60,7 @@
                 android:layout_weight="1.2"
                 android:gravity="center"
                 android:onClick="changeScreen"
-                android:text="USERS"
+                android:text="MAKE CALL"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -79,11 +80,140 @@
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="8">
+    <LinearLayout
+        android:id="@+id/containerOptions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:weightSum="3">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="5dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="5dp">
+            <LinearLayout
+                android:id="@+id/bothgenderLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:onClick="createaCall"
+                android:gravity="center_vertical"
+                android:weightSum="5">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_weight="2"/>
+                <TextView
+                    android:id="@+id/bothgender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Both"
+                    android:layout_weight="2.5"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="20sp"
+                    android:textSize="20sp"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_navigate_next"
+                    />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="5dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="5dp">
+            <LinearLayout
+                android:id="@+id/malegenderLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:onClick="createaCall"
+                android:gravity="center_vertical"
+                android:weightSum="5">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    android:id="@+id/malegender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:layout_weight="2.5"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="20sp"
+                    android:textSize="20sp"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_navigate_next"
+                    />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="5dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="5dp">
+            <LinearLayout
+                android:id="@+id/femalegenderLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:onClick="createaCall"
+                android:gravity="center_vertical"
+                android:weightSum="5">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_weight="2"/>
+                <TextView
+                    android:id="@+id/femalegender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:layout_weight="2.5"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="20sp"
+                    android:textSize="20sp"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_navigate_next"
+                    />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemcontainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/useritem" />
+        android:visibility="gone"
+        tools:listitem="@layout/callitem" />
     <include layout="@layout/progressloader"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"

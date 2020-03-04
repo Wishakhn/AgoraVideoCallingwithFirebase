@@ -12,4 +12,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="agora_app_id">8332916458cb4c37834a9e388253ea47</string>
+<!--    <string name="agora_app_id">89143b7a2891422caaf12e7d8009730c</string>-->
+    <string name="bit_rate_value_with_unit">%d kbps</string>
+    <string name="frame_rate_value_with_unit">%d fps</string>
+    <string name="agora_access_token">#YOUR ACCESS TOKEN#</string>
 </resources>

@@ -6,43 +6,51 @@
     android:background="@color/calling"
     tools:context=".CallingActivity">
     <FrameLayout
-        android:id="@+id/callcameracontainer"
+        android:id="@+id/local_video_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+    </FrameLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/callname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="35sp"
-                android:text="Robert Dave"
-                android:fontFamily="sans-serif-smallcaps"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="150dp"/>
-            <TextView
-                android:id="@+id/callstatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/callname"
-                android:text="Ringing . . . ."
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"/>
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/callname"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:text="Robert Dave"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/transparentGrey"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"/>
+        <TextView
+            android:id="@+id/callstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_below="@+id/callname"
+            android:text="Calling . . . ."
+            android:textSize="20sp"
+            android:background="@color/transparentGrey"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"/>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/remote_video_view_container"
+        android:layout_margin="20dp"
+        android:layout_width="170dp"
+        android:visibility="gone"
+        android:background="@color/grey"
+        android:layout_alignParentEnd="true"
+        android:layout_height="200dp"
+        >
     </FrameLayout>
-<FrameLayout
-    android:id="@+id/smallvideocontainer"
-    android:layout_alignParentEnd="true"
-    android:layout_margin="20dp"
-    android:layout_width="170dp"
-    android:layout_height="200dp"
-    android:background="@color/grey"
-    android:visibility="gone"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -55,6 +63,7 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
+            android:onClick="onSwitchCameraClicked"
             android:src="@drawable/btn_switch_camera_normal"/>
         <View
             android:layout_width="0dp"
@@ -75,6 +84,7 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
+            android:onClick="onLocalAudioMuteClicked"
             android:src="@drawable/btn_unmute_normal"/>
     </LinearLayout>
 

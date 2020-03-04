@@ -1,0 +1,14 @@
+
+m
+java:S1104"RMake mWidth a static final constant or non-public and provide accessors if needed.(“§çÙùÿÿÿÿ
+n
+java:S1104"SMake mHeight a static final constant or non-public and provide accessors if needed.(óÐí§ÿÿÿÿÿ
+m
+java:S1104"RMake mDelay a static final constant or non-public and provide accessors if needed.(ÏŠâËýÿÿÿÿ
+q
+java:S1104"VMake mFrameRate a static final constant or non-public and provide accessors if needed.(ðƒ²Æûÿÿÿÿ
+o
+java:S1104	"TMake mBitRate a static final constant or non-public and provide accessors if needed.(þª™ðÿÿÿÿÿ
+m
+java:S1104
+"RMake mCodec a static final constant or non-public and provide accessors if needed.(Ëý‡©øÿÿÿÿ

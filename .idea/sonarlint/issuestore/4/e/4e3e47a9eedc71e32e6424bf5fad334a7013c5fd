@@ -1,4 +1,9 @@
 
-b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ãóŸ·
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ãóŸ·
+Q
+java:S1128"4Remove this unused import 'android.content.Context'.(©Ê‰è8Ù–Ã€Š.
+E	java:S108H")Either remove or fill this block of code.(á¢–¬8ÝªÅ€Š.
+[
+java:S33983">Move this method into the anonymous class declared at line 60.(žÑ‚ô8†–Ç€Š.
 œ
-java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ð¸™áúÿÿÿÿ
+java:S1186O"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ð¸™áúÿÿÿÿ

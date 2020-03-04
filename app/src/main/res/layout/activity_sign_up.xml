@@ -61,13 +61,37 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
             android:hint="Gender"
+            android:enabled="false"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
             android:inputType="text"
             android:selectAllOnFocus="true"
             android:singleLine="true"
             />
-
+<RadioGroup
+    android:id="@+id/getgender"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="2"
+    android:paddingHorizontal="15dp"
+    android:orientation="horizontal">
+    <RadioButton
+        android:id="@+id/male"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:buttonTint="@color/colorPrimaryDark"
+        android:text="Male"
+        android:textColor="@color/black"/>
+    <RadioButton
+        android:id="@+id/female"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:buttonTint="@color/colorPrimaryDark"
+        android:text="Female"
+        android:textColor="@color/black"/>
+</RadioGroup>
     </LinearLayout>
     <Button
         android:id="@+id/signup"

@@ -1,19 +1,19 @@
 
-V	java:S106¶"9Replace this use of System.out or System.err by a logger.(‰à´«8ìó‰ıâ.
->	java:S131L""Add a default case to this switch.(é∫÷ç8Ñ—ë“â.
+U	java:S106y"9Replace this use of System.out or System.err by a logger.(ñÜ¶õ8ŒÂ ˜â.
 P
 java:S1128".Remove this unused import 'java.util.HashMap'.(ôòîÄ˘ˇˇˇˇ8¿¡•˜â.
-n
-java:S1128"LRemove this unused import 'com.google.android.gms.tasks.OnCompleteListener'.(«∏“ˇˇˇˇˇ8¿¡•˜â.
 [
 java:S1128">Remove this unused import 'com.google.android.gms.tasks.Task'.(¶‚œÙ8¿¡•˜â.
-Z	java:S106|"9Replace this use of System.out or System.err by a logger.(ì¢‚≈˛ˇˇˇˇ8ŒÂ ˜â.
-U	java:S106y"9Replace this use of System.out or System.err by a logger.(ñÜ¶õ8ŒÂ ˜â.
-U	java:S106~"9Replace this use of System.out or System.err by a logger.(úﬂîÚ8ŒÂ ˜â.
+n
+java:S1128"LRemove this unused import 'com.google.android.gms.tasks.OnCompleteListener'.(«∏“ˇˇˇˇˇ8¿¡•˜â.
 [	java:S106ß"9Replace this use of System.out or System.err by a logger.(ƒ¯Ìî˝ˇˇˇˇ8¥œÁıâ.
-§
-java:S1186Æ"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(–˜ëﬁˇˇˇˇˇ8ﬁÉ√⁄â.
-V	java:S106Å"9Replace this use of System.out or System.err by a logger.(Ω¨ùø8ŒÂ ˜â.
+V	java:S106¶"9Replace this use of System.out or System.err by a logger.(‰à´«8ìó‰ıâ.
+Z	java:S106|"9Replace this use of System.out or System.err by a logger.(ì¢‚≈˛ˇˇˇˇ8ŒÂ ˜â.
 h
 java:S11925"FDefine a constant instead of duplicating this literal "Users" 3 times.(ôö€È˘ˇˇˇˇ8ŒÂ ˜â.
+§
+java:S1186Æ"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(–˜ëﬁˇˇˇˇˇ8ﬁÉ√⁄â.
 V	java:S106•"9Replace this use of System.out or System.err by a logger.(æô˝ú8óå¡⁄â.
+U	java:S106~"9Replace this use of System.out or System.err by a logger.(úﬂîÚ8ŒÂ ˜â.
+V	java:S106Å"9Replace this use of System.out or System.err by a logger.(Ω¨ùø8ŒÂ ˜â.
+>	java:S131L""Add a default case to this switch.(é∫÷ç8Ñ—ë“â.

@@ -10,4 +10,9 @@
     <color name="transparent">#00FDFDFD</color>
     <color name="violet">#6223FF</color>
     <color name="calling">#664D6C</color>
+    <color name="black">#030303</color>
+    <color name="logInfo">#4a90e2</color>
+    <color name="logWarn">#fedd56</color>
+    <color name="logError">#fe375f</color>
+    <color name="transparentGrey">#B0222222</color>
 </resources>

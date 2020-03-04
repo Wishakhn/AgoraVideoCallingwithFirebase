@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,17 +31,30 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     DatabaseReference firebaseRef;
     ProgressBar loading;
+    RadioGroup getgender;
+    String gen="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_sign_up);
+        getgender = findViewById(R.id.getgender);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         gender = findViewById(R.id.gender);
         loading = findViewById(R.id.loading);
+        getgender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                // find the radiobutton by returned id
+               RadioButton radioButton = (RadioButton) findViewById(selectedId);
+               gen = radioButton.getText().toString();
+               gender.setText(gen);
+            }
+        });
     }
 
     public void RegisterHandler(View view) {
@@ -46,7 +62,6 @@ public class SignUpActivity extends AppCompatActivity {
         String name = username.getText().toString().trim();
         String mail = email.getText().toString().trim();
         String pass = password.getText().toString().trim();
-        String gen = gender.getText().toString().trim();
         requestRegistration(name, mail, pass, gen);
 
     }
