@@ -1,9 +1,0 @@
-
-s
-java:S1104"XMake mChannelName a static final constant or non-public and provide accessors if needed.(¿Æáşùÿÿÿÿ
-{
-java:S1104"`Make mEncryptionModeIndex a static final constant or non-public and provide accessors if needed.(éğúÏøÿÿÿÿ
-u
-java:S1104"ZMake mEncryptionKey a static final constant or non-public and provide accessors if needed.(ôï·ÿÿÿÿÿ
-—
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¡ÀØ”

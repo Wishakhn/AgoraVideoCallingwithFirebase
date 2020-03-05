@@ -34,7 +34,11 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".VideoChatViewActivity"/>
+        <activity android:name=".IncommingCallActivity"/>
+
+        <service android:name=".CallHandlingService"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>

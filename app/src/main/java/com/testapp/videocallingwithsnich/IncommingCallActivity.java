@@ -1,30 +1,25 @@
 package com.testapp.videocallingwithsnich;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.Random;
+import androidx.appcompat.app.AppCompatActivity;
 
-import io.agora.rtc.Constants;
 import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
 import io.agora.rtc.video.VideoEncoderConfiguration;
 
-public class CallingActivity extends AppCompatActivity {
+public class IncommingCallActivity extends AppCompatActivity {
     private static final String TAG = "VIDEOCALL_TAG";
     TextView callname;
     TextView callstatus;
@@ -34,8 +29,9 @@ public class CallingActivity extends AppCompatActivity {
     Intent gtent;
     FrameLayout smallvideocontainer;
     FrameLayout callcameracontainer;
-    String setcallername="";
+    String setrecivername ="";
     RelativeLayout callernameContainer;
+
     private SurfaceView mLocalView;
     private SurfaceView mRemoteView;
     private RtcEngine mRtcEngine;
@@ -61,8 +57,7 @@ public class CallingActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     System.out.println("First remote video decoded, uid: " + (uid & 0xFFFFFFFFL));
-                    setupRemoteVideo(uid,callcameracontainer);
-                    oncallAttended();
+                    setupRemoteVideo(uid);
                 }
             });
         }
@@ -79,11 +74,14 @@ public class CallingActivity extends AppCompatActivity {
         }
     };
 
-    private void setupRemoteVideo(int uid, ViewGroup smallScreenContainer) {
-        int count = smallScreenContainer.getChildCount();
+    private void setupRemoteVideo(int uid) {
+        // Only one remote video view is available for this
+        // tutorial. Here we check if there exists a surface
+        // view tagged as this uid.
+        int count = callcameracontainer.getChildCount();
         View view = null;
         for (int i = 0; i < count; i++) {
-            View v = smallScreenContainer.getChildAt(i);
+            View v = callcameracontainer.getChildAt(i);
             if (v.getTag() instanceof Integer && ((int) v.getTag()) == uid) {
                 view = v;
             }
@@ -92,11 +90,12 @@ public class CallingActivity extends AppCompatActivity {
         if (view != null) {
             return;
         }
-        callstatus.setText("Ringing . . . . .");
+
         mRemoteView = RtcEngine.CreateRendererView(getBaseContext());
-        smallScreenContainer.addView(mRemoteView);
+        callcameracontainer.addView(mRemoteView);
         mRtcEngine.setupRemoteVideo(new VideoCanvas(mRemoteView, VideoCanvas.RENDER_MODE_HIDDEN, uid));
         mRemoteView.setTag(uid);
+        callstatus.setText("Ringing . . . . .");
     }
 
     private void onRemoteUserLeft() {
@@ -108,13 +107,8 @@ public class CallingActivity extends AppCompatActivity {
             callcameracontainer.removeView(mRemoteView);
         }
         mRemoteView = null;
-
     }
 
-private void oncallAttended(){
-    callernameContainer.setVisibility(View.GONE);
-    callcameracontainer.setVisibility(View.VISIBLE);
-}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,8 +130,14 @@ private void oncallAttended(){
         callernameContainer = findViewById(R.id.callernameContainer);
         callingbtn = findViewById(R.id.callingbtn);
         callingbtn.setOnClickListener(callListner);
+        switchcamera.setVisibility(View.GONE);
+        mutebtn.setVisibility(View.GONE);
+        callstatus.setText("Calling . . . . .");
+
+        callingbtn.setImageResource(R.drawable.btn_startcall_normal);
         if (gtent != null) {
-             setcallername = gtent.getStringExtra("recivername");
+             setrecivername = gtent.getStringExtra("recivername");
+             String setcallername = gtent.getStringExtra("callername");
             callname.setText(setcallername);
         }
     }
@@ -163,9 +163,11 @@ private void oncallAttended(){
     };
 
     private void initEngineAndJoinChannel() {
+        // This is our usual steps for joining
+        // a channel and starting a call.
         initializeEngine();
         setupVideoConfig();
-        setupLocalVideo(smallvideocontainer);
+        setupLocalVideo();
         joinChannel();
         finishOnnoResponse();
     }
@@ -194,22 +196,35 @@ private void oncallAttended(){
                 VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT));
     }
 
-    private void setupLocalVideo(ViewGroup largeScreen) {
+    private void setupLocalVideo() {
+        // This is used to set a local preview.
+        // The steps setting local and remote view are very similar.
+        // But note that if the local user do not have a uid or do
+        // not care what the uid is, he can set his uid as ZERO.
+        // Our server will assign one and return the uid via the event
+        // handler callback function (onJoinChannelSuccess) after
+        // joining the channel successfully.
         mLocalView = RtcEngine.CreateRendererView(getBaseContext());
         mLocalView.setZOrderMediaOverlay(true);
-        largeScreen.addView(mLocalView);
+        smallvideocontainer.addView(mLocalView);
         mRtcEngine.setupLocalVideo(new VideoCanvas(mLocalView, VideoCanvas.RENDER_MODE_HIDDEN, 0));
-
     }
 
     private void joinChannel() {
+        // 1. Users can only see each other after they join the
+        // same channel successfully using the same app id.
+        // 2. One token is only valid for the channel name that
+        // you use to generate this token.
         String token = getString(R.string.agora_access_token);
         if (TextUtils.isEmpty(token) || TextUtils.equals(token, "#YOUR ACCESS TOKEN#")) {
             token = null; // default, no token
         }
-        mRtcEngine.joinChannel(token, setcallername, "Extra Optional Data", 0);
+        mRtcEngine.joinChannel(token, setrecivername, "Extra Optional Data", 0);
     }
-
+    private void oncallAttended(){
+        callernameContainer.setVisibility(View.GONE);
+        callcameracontainer.setVisibility(View.VISIBLE);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -254,7 +269,7 @@ private void oncallAttended(){
         counterTimer.start();
     }
     private void startCall() {
-        setupLocalVideo(smallvideocontainer);
+        setupLocalVideo();
         joinChannel();
     }
 

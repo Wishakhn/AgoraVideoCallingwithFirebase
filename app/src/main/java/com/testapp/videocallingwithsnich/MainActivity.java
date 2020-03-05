@@ -5,8 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +34,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import static com.testapp.videocallingwithsnich.PrefernceManager.LAUNCH_KEY;
+
 public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     DatabaseReference reference;
@@ -40,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     TextView norectext;
     ProgressBar loading;
     List<UserModel> users;
-    List<callModel> calls;
+    List<callLogModel> calls;
     ImageView menubtn;
     LinearLayout logoutbtn;
     int show = 0;
@@ -48,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<UserModel> malelist;
     ArrayList<UserModel> femalelist;
     LinearLayout containerOptions;
+    PrefernceManager prefsManager;
+    Boolean startservice = false;
+    CallHandlingService callhandlingService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
-         containerOptions = findViewById(R.id.containerOptions);
+        containerOptions = findViewById(R.id.containerOptions);
+        prefsManager = new PrefernceManager(MainActivity.this);
+        prefsManager.initPrefernce();
         callbtn = findViewById(R.id.callbtn);
         userTitle = findViewById(R.id.userTitle);
         userbtn = findViewById(R.id.userbtn);
@@ -74,10 +87,37 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private final ServiceConnection mServiceConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            CallHandlingService.CallAppBinder binder = (CallHandlingService.CallAppBinder) service;
+            callhandlingService = binder.getService();
+            startservice = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            callhandlingService = null;
+            startservice = false;
+        }
+    };
+
     @Override
     protected void onStart() {
         super.onStart();
         userLoader();
+        if (prefsManager.loadBooleanPrefernce(LAUNCH_KEY)) {
+            bindService(new Intent(this, CallHandlingService.class), mServiceConnection,
+                    Context.BIND_AUTO_CREATE);
+        }
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        startCallingService();
     }
 
     public void changeScreen(View view) {
@@ -166,11 +206,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadCalllist() {
         calls.clear();
-        calls.add(new callModel("35 mins", "Gippy Girewal"));
-        calls.add(new callModel("1 hr 2 mins", "Honney Singh"));
-        calls.add(new callModel("10 mins", "Gippy Girewal"));
-        calls.add(new callModel("0 min", "Sophiee"));
-        calls.add(new callModel("35 mins", "Bohemiea"));
+        calls.add(new callLogModel("35 mins", "Gippy Girewal"));
+        calls.add(new callLogModel("1 hr 2 mins", "Honney Singh"));
+        calls.add(new callLogModel("10 mins", "Gippy Girewal"));
+        calls.add(new callLogModel("0 min", "Sophiee"));
+        calls.add(new callLogModel("35 mins", "Bohemiea"));
         loading.setVisibility(View.GONE);
 
     }
@@ -230,6 +270,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void createCallingDatabase(final String rname, final String rId) {
+        reference = FirebaseDatabase.getInstance().getReference("Calls");
+        HashMap<String, String> hashmap = new HashMap<>();
+        hashmap.put("callerName", user.getDisplayName());
+        hashmap.put("callerId", user.getUid());
+        hashmap.put("ReciverName", rname);
+        hashmap.put("reciverId", rId);
+        hashmap.put("callState", "calling");
+        hashmap.put("callDur", "00:00:00");
+        reference.setValue(hashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Intent callaRandom = new Intent(MainActivity.this, CallingActivity.class);
+                    callaRandom.putExtra("recivername", rname);
+                    callaRandom.putExtra("reciverid", rId);
+                    startActivity(callaRandom);
+                } else {
+                    Toast.makeText(MainActivity.this, "Error !! \n" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     private void callRandomUser() {
         if (PermissionHandler.checkAllPermissions(MainActivity.this)) {
             generateAnygenderId();
@@ -241,12 +305,9 @@ public class MainActivity extends AppCompatActivity {
     private void generateAnygenderId() {
         Random randb = new Random();
         int randomIndex = randb.nextInt(totallist.size());
-        String anyrandomMale = totallist.get(randomIndex).getUsername();
-        String maleId = totallist.get(randomIndex).getUserId();
-        Intent callaRandom = new Intent(MainActivity.this, CallingActivity.class);
-        callaRandom.putExtra("callername", anyrandomMale);
-        callaRandom.putExtra("callerid", maleId);
-        startActivity(callaRandom);
+        String anyrandomUser = totallist.get(randomIndex).getUsername();
+        String randomuserId = totallist.get(randomIndex).getUserId();
+        createCallingDatabase(anyrandomUser, randomuserId);
     }
 
     private void callaFemaleUser() {
@@ -260,12 +321,10 @@ public class MainActivity extends AppCompatActivity {
     private void generateFemalegenderId() {
         Random rand1 = new Random();
         int randomIndex = rand1.nextInt(femalelist.size());
-        String anyrandomMale = femalelist.get(randomIndex).getUsername();
-        String maleId = femalelist.get(randomIndex).getUserId();
-        Intent callaFemale = new Intent(MainActivity.this, CallingActivity.class);
-        callaFemale.putExtra("callername", anyrandomMale);
-        callaFemale.putExtra("callerid", maleId);
-        startActivity(callaFemale);
+        String anyrandomFemale = femalelist.get(randomIndex).getUsername();
+        String femaleId = femalelist.get(randomIndex).getUserId();
+        createCallingDatabase(anyrandomFemale, femaleId);
+
     }
 
     private void callaMaleUser() {
@@ -282,10 +341,38 @@ public class MainActivity extends AppCompatActivity {
         int randomIndex = rand.nextInt(malelist.size());
         String anyrandomMale = malelist.get(randomIndex).getUsername();
         String maleId = malelist.get(randomIndex).getUserId();
-        Intent callaMale = new Intent(MainActivity.this, CallingActivity.class);
-        callaMale.putExtra("callername", anyrandomMale);
-        callaMale.putExtra("callerid", maleId);
-        startActivity(callaMale);
+        createCallingDatabase(anyrandomMale, maleId);
+
+    }
+
+    private void startCallingService() {
+        prefsManager.saveBooleanPrefernce(LAUNCH_KEY, true);
+        if (callhandlingService != null) {
+            callhandlingService.startCallService();
+            if (startservice) {
+                unbindService(mServiceConnection);
+                startservice = false;
+            }
+        } else {
+            Intent serviceIntent = new Intent(getApplicationContext(), CallHandlingService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                getApplicationContext().startForegroundService(serviceIntent);
+            } else {
+                getApplicationContext().startService(serviceIntent);
+            }
+        }
+
+    }
+
+    private void stopCallingService() {
+        prefsManager.saveBooleanPrefernce(LAUNCH_KEY, false);
+        startservice = false;
+        if (callhandlingService != null) {
+            callhandlingService.stopCallService();
+        } else {
+            Intent serviceIntent = new Intent(getApplicationContext(), CallHandlingService.class);
+            stopService(serviceIntent);
+        }
     }
 
     @Override

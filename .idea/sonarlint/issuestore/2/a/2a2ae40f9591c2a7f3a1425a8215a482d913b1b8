@@ -1,5 +1,7 @@
 
+U
+java:S1128"8Remove this unused import 'android.provider.MediaStore'.(ãçšþ8ˆŸ¤Š.
+U	java:S106M"9Replace this use of System.out or System.err by a logger.(ª”°å8¯ž‚¤Š.
 H
-java:S1172,"+Remove this unused method parameter "view".(ç³›£8îúÍÍ‰.
-j	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç³›£8îúÍÍ‰.
-U	java:S106>"9Replace this use of System.out or System.err by a logger.(ª”°å8™…ƒÎ‰.
+java:S1172<"+Remove this unused method parameter "view".(ç³›£8¯ž‚¤Š.
+j	java:S100<"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç³›£8¯ž‚¤Š.

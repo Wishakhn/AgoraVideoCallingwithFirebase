@@ -61,7 +61,7 @@ public class operationDialog extends Dialog {
         @Override
         public void onClick(View view) {
             dismiss();
-            Intent makecall = new Intent(getContext(),VideoChatViewActivity.class);
+            Intent makecall = new Intent(getContext(),CallingActivity.class);
             makecall.putExtra("uname",username);
             view.getContext().startActivity(makecall);
         }

@@ -1,9 +1,0 @@
-
-
-java:S13196"lThe type of the "uids" object should be an interface such as "Map" rather than the implementation "HashMap".(í€Šşÿÿÿÿ8“öÈ‚Š.
-
-java:S1319Q"lThe type of the "uids" object should be an interface such as "Map" rather than the implementation "HashMap".(¢Õá€ûÿÿÿÿ8“öÈ‚Š.
-
-java:S1319Q"nThe type of the "status" object should be an interface such as "Map" rather than the implementation "HashMap".(¢Õá€ûÿÿÿÿ8“öÈ‚Š.
-
-java:S1319Q"nThe type of the "volume" object should be an interface such as "Map" rather than the implementation "HashMap".(¢Õá€ûÿÿÿÿ8“öÈ‚Š.

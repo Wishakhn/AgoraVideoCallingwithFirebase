@@ -1,42 +1,0 @@
-
-O
-java:S3252"3Use static access with "java.util.Map" for "Entry".(ÕŠÇ8ÏØ‚Š.
-
-java:S1319`"mThe type of the "video" object should be an interface such as "Map" rather than the implementation "HashMap".(–ÕÉ…øÿÿÿÿ8ÏØ‚Š.
-
-java:S1319h"mThe type of the "video" object should be an interface such as "Map" rather than the implementation "HashMap".(´Çãúÿÿÿÿÿ8ÏØ‚Š.
-n
-java:S3776d"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(½‹Ê`8ÏØ‚Š.
-‹
-java:S1319^"nThe type of the "status" object should be an interface such as "Map" rather than the implementation "HashMap".(ñÔ©Š8ÏØ‚Š.
-Œ
-java:S1319d"pThe type of the "users" object should be an interface such as "List" rather than the implementation "ArrayList".(½‹Ê`8ÜäÖ‚Š.
-F	java:S108Œ")Either remove or fill this block of code.(›°è¡8ÏØ‚Š.
-E	java:S108)")Either remove or fill this block of code.(›°è¡8ÏØ‚Š.
-E	java:S108.")Either remove or fill this block of code.(›°è¡8Ü»×‚Š.
-E	java:S108")Either remove or fill this block of code.(›°è¡8ÏØ‚Š.
-Œ
-java:S1319\"pThe type of the "users" object should be an interface such as "List" rather than the implementation "ArrayList".(½‹Ê`8ÏØ‚Š.
-
-java:S1319g"nThe type of the "volume" object should be an interface such as "Map" rather than the implementation "HashMap".(è¾öËûÿÿÿÿ8ÏØ‚Š.
-ˆ
-java:S1319\"lThe type of the "uids" object should be an interface such as "Map" rather than the implementation "HashMap".(½‹Ê`8ÏØ‚Š.
-O
-java:S3252i"3Use static access with "java.util.Map" for "Entry".(ÕŠÇ8ÏØ‚Š.
-P
-java:S32526"3Use static access with "java.util.Map" for "Entry".(ÿÑàÕ8ÏØ‚Š.
-
-java:S1319_"nThe type of the "volume" object should be an interface such as "Map" rather than the implementation "HashMap".(è¾öËûÿÿÿÿ8ÏØ‚Š.
-
-java:S1319"lThe type of the "uids" object should be an interface such as "Map" rather than the implementation "HashMap".(Èêìúÿÿÿÿ8ÏØ‚Š.
-ˆ
-java:S1319d"lThe type of the "uids" object should be an interface such as "Map" rather than the implementation "HashMap".(½‹Ê`8ÏØ‚Š.
-F	java:S108•")Either remove or fill this block of code.(›°è¡8ÏØ‚Š.
-’
-java:S1319"pThe type of the "users" object should be an interface such as "List" rather than the implementation "ArrayList".(Èêìúÿÿÿÿ8ÏØ‚Š.
-\
-java:S1118":Add a private constructor to hide the implicit public one.(ü½±Ëøÿÿÿÿ8ÏØ‚Š.
-‹
-java:S1319f"nThe type of the "status" object should be an interface such as "Map" rather than the implementation "HashMap".(ñÔ©Š8ÏØ‚Š.
-o
-java:S37766"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(ÿÑàÕ8ÏØ‚Š.

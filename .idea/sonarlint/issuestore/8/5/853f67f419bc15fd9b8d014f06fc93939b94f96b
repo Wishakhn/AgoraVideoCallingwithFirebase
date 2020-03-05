@@ -1,9 +1,31 @@
 
+s	java:S117û"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰´ï‘úÿÿÿÿ8Á˜ç©Š.
+L
+java:S1128"/Remove this unused import 'android.os.Handler'.(ûÛ’¡8œ—è©Š.
+O
+java:S1128"-Remove this unused import 'java.util.Random'.(èøÉ›ùÿÿÿÿ8Ýý¼§Š.
+Z	java:S1062"9Replace this use of System.out or System.err by a logger.(Í’¦êúÿÿÿÿ8ùà‰©Š.
+U	java:S106J"9Replace this use of System.out or System.err by a logger.(¯†üš8ùà‰©Š.
+]	java:S125K"<This block of commented-out lines of code should be removed.(Ûú¯…øÿÿÿÿ8ùà‰©Š.
+N
+java:S1172í"+Remove this unused method parameter "view".(„®úùÿÿÿÿ8Øõ’©Š.
+I
+java:S1172ô"+Remove this unused method parameter "view".(„üŽ»8Øõ’©Š.
+c	java:S112²"FDefine and throw a dedicated exception instead of using a generic one.(ß°«Å8Øõ’©Š.
+`
+java:S3398j">Move this method into the anonymous class declared at line 44.(‘Ö°Æûÿÿÿÿ8ùà‰©Š.
+b
+java:S3398œ"?Move this method into the anonymous class declared at line 143.(íÚïãøÿÿÿÿ8Ú„î©Š.
+Z	java:S106>"9Replace this use of System.out or System.err by a logger.(ðÊ“Éøÿÿÿÿ8ùà‰©Š.
+X	java:S1253"<This block of commented-out lines of code should be removed.(’ÐÂ˜8ùà‰©Š.
+X	java:S125?"<This block of commented-out lines of code should be removed.(ùåèº8ùà‰©Š.
+U
+java:S1128"3Remove this unused import 'io.agora.rtc.Constants'.(¯ÉÓÓøÿÿÿÿ8Ýý¼§Š.
+l
+java:S18749"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¥Ò—ûÿÿÿÿ8ùà‰©Š.
 ^
-java:S1874]"<Remove this use of "RENDER_MODE_ADAPTIVE"; it is deprecated.(®°Öûÿÿÿÿ8Š·Æÿ‰.
-Y
-java:S1874W"7Remove this use of "setVideoProfile"; it is deprecated.(šàáÿÿÿÿÿ8…³ºÿ‰.
-E
-java:S1148R"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8›Ë·ÿ‰.
-\
-java:S1874W":Remove this use of "VIDEO_PROFILE_360P"; it is deprecated.(šàáÿÿÿÿÿ8“÷½ÿ‰.
+java:S1874:"ARemove this use of "onFirstRemoteVideoDecoded"; it is deprecated.(Ž—áë8ùà‰©Š.
+[
+java:S3398R">Move this method into the anonymous class declared at line 44.(Ù¼–é8ùà‰©Š.
+b
+java:S3398Š"?Move this method into the anonymous class declared at line 143.(œµšìýÿÿÿÿ8Ú„î©Š.

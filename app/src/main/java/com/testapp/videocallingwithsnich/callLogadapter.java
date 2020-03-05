@@ -12,9 +12,9 @@ import java.util.List;
 
 public class callLogadapter extends RecyclerView.Adapter<callLogadapter.callViewholder> {
 
-    List<callModel> getCalls;
+    List<callLogModel> getCalls;
     LayoutInflater inflater;
-    public callLogadapter(List<callModel> getCalls) {
+    public callLogadapter(List<callLogModel> getCalls) {
         this.getCalls = getCalls;
     }
 
@@ -28,7 +28,7 @@ public class callLogadapter extends RecyclerView.Adapter<callLogadapter.callView
 
     @Override
     public void onBindViewHolder(@NonNull callLogadapter.callViewholder holder, int position) {
-        callModel model = getCalls.get(position);
+        callLogModel model = getCalls.get(position);
         holder.callername.setText(model.getCallername());
         holder.callertime.setText(model.getCalldur());
 

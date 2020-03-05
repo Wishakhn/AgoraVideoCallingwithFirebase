@@ -5,13 +5,9 @@
     android:layout_height="match_parent"
     android:background="@color/calling"
     tools:context=".CallingActivity">
-    <FrameLayout
-        android:id="@+id/local_video_view_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible">
-    </FrameLayout>
     <RelativeLayout
+        android:id="@+id/callernameContainer"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
@@ -43,12 +39,18 @@
 
     <FrameLayout
         android:id="@+id/remote_video_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+      />
+    <FrameLayout
+        android:id="@+id/local_video_view_container"
         android:layout_margin="20dp"
-        android:layout_width="170dp"
+        android:layout_width="140dp"
         android:visibility="gone"
         android:background="@color/grey"
         android:layout_alignParentEnd="true"
-        android:layout_height="200dp"
+        android:layout_height="170dp"
         >
     </FrameLayout>
     <LinearLayout
