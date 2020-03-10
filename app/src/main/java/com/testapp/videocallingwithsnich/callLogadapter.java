@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.testapp.videocallingwithsnich.Models.callLogModel;
+
 import java.util.List;
 
 public class callLogadapter extends RecyclerView.Adapter<callLogadapter.callViewholder> {

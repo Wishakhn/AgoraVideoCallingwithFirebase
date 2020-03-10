@@ -1,0 +1,25 @@
+
+\	java:S112¶"FDefine and throw a dedicated exception instead of using a generic one.(ß°«Å
+l	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰´ï‘úÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š©§öüÿÿÿÿ
+S	java:S1062"9Replace this use of System.out or System.err by a logger.(Í’¦êúÿÿÿÿ
+e
+java:S18748"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¥Ò—ûÿÿÿÿ
+W
+java:S18749"ARemove this use of "onFirstRemoteVideoDecoded"; it is deprecated.(—áë
+S	java:S106="9Replace this use of System.out or System.err by a logger.(ğÊ“Éøÿÿÿÿ
+N	java:S106H"9Replace this use of System.out or System.err by a logger.(¯†üš
+G
+java:S1172ô"+Remove this unused method parameter "view".(„®úùÿÿÿÿ
+B
+java:S1172û"+Remove this unused method parameter "view".(„ü»
+Y
+java:S3398g">Move this method into the anonymous class declared at line 44.(‘Ö°Æûÿÿÿÿ
+T
+java:S3398O">Move this method into the anonymous class declared at line 44.(Ù¼–é
+[
+java:S3398£"?Move this method into the anonymous class declared at line 147.(íÚïãøÿÿÿÿ
+[
+java:S3398‘"?Move this method into the anonymous class declared at line 147.(œµšìıÿÿÿÿ
+O
+java:S1144â"3Remove this unused private "oncallAttended" method.(ôù¼îúÿÿÿÿ

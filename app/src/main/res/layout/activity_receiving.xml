@@ -6,12 +6,12 @@
     android:background="@color/calling"
     tools:context=".Activities.CallingActivity">
     <RelativeLayout
-        android:id="@+id/callernameContainer"
+        android:id="@+id/callernameContainer1"
         android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:id="@+id/callname"
+            android:id="@+id/callname1"
             android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,11 +24,11 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="150dp"/>
         <TextView
-            android:id="@+id/callstatus"
+            android:id="@+id/callstatus1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:layout_below="@+id/callname"
+            android:layout_below="@+id/callname1"
             android:text="Calling . . . ."
             android:textSize="20sp"
             android:background="@color/transparentGrey"
@@ -38,21 +38,20 @@
     </RelativeLayout>
 
     <FrameLayout
-        android:id="@+id/remote_video_view_container"
+        android:id="@+id/remote_video_view_container1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
       />
     <FrameLayout
-        android:id="@+id/local_video_view_container"
+        android:id="@+id/local_video_view_container1"
         android:layout_margin="20dp"
         android:layout_width="140dp"
         android:visibility="gone"
         android:background="@color/grey"
         android:layout_alignParentEnd="true"
         android:layout_height="170dp"
-        >
-    </FrameLayout>
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -61,33 +60,35 @@
         android:gravity="center"
         android:weightSum="5">
         <ImageView
-            android:id="@+id/switchcamera"
+            android:id="@+id/switchcamera1"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
             android:onClick="onSwitchCameraClicked"
-            android:src="@drawable/btn_switch_camera_normal"/>
+            android:src="@drawable/btn_switch_camera_normal"
+            android:visibility="gone"/>
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.2"/>
         <ImageView
-            android:id="@+id/callingbtn"
+            android:id="@+id/callingbtn1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/btn_endcall_normal"/>
+            android:src="@drawable/btn_startcall_normal"/>
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.2"/>
         <ImageView
-            android:id="@+id/mutebtn"
+            android:id="@+id/mutebtn1"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
             android:onClick="onLocalAudioMuteClicked"
-            android:src="@drawable/btn_unmute_normal"/>
+            android:src="@drawable/btn_unmute_normal"
+            android:visibility="gone"/>
     </LinearLayout>
 
 </RelativeLayout>

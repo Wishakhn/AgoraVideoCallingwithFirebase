@@ -1,32 +1,0 @@
-
-A
-java:S2119…"Save and re-use this "Random".(ËüÇøÿÿÿÿ8½•§Š.
-[	java:S106¹"9Replace this use of System.out or System.err by a logger.(Äøí”ıÿÿÿÿ8‚ë—¥Š.
-P
-java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8ÀÁ¥÷‰.
-A
-java:S2119ò"Save and re-use this "Random".(İê¨äşÿÿÿÿ8”ù §Š.
-[
-java:S1128">Remove this unused import 'com.google.android.gms.tasks.Task'.(¦âÏô8ÀÁ¥÷‰.
-¤
-java:S1186À"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ğ÷‘Şÿÿÿÿÿ8‚ë—¥Š.
-V	java:S106™"9Replace this use of System.out or System.err by a logger.(Ó¨ƒ²8ÿŠ¥Š.
->	java:S131T""Add a default case to this switch.(ºÖ8‚ë—¥Š.
-V	java:S106ˆ"9Replace this use of System.out or System.err by a logger.(–†¦›8‚ë—¥Š.
-[	java:S106‹"9Replace this use of System.out or System.err by a logger.(“¢âÅşÿÿÿÿ8‚ë—¥Š.
-A
-java:S2119™"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8½•§Š.
-h
-java:S11929"FDefine a constant instead of duplicating this literal "Users" 3 times.(™šÛéùÿÿÿÿ8‚ë—¥Š.
-V	java:S106˜"9Replace this use of System.out or System.err by a logger.(ßëÊ8½¢Š¥Š.
-n
-java:S1128"LRemove this unused import 'com.google.android.gms.tasks.OnCompleteListener'.(Çğ¸Òÿÿÿÿÿ8ÀÁ¥÷‰.
-g
-java:S1192ø"IDefine a constant instead of duplicating this literal "callerid" 3 times.(÷¥¨Ù8”ù §Š.
-V	java:S106"9Replace this use of System.out or System.err by a logger.(œß”ò8‚ë—¥Š.
-[	java:S106š"9Replace this use of System.out or System.err by a logger.(Ê®ÚÛùÿÿÿÿ8‚ë—¥Š.
-V	java:S106·"9Replace this use of System.out or System.err by a logger.(¾™ıœ8½¢Š¥Š.
-?	java:S131Û""Add a default case to this switch.(ºÖ8‚ë—¥Š.
-h
-java:S1192÷"KDefine a constant instead of duplicating this literal "callername" 3 times.(åÓR8”ù §Š.
-V	java:S106¸"9Replace this use of System.out or System.err by a logger.(äˆ«Ç8ÿŠ¥Š.

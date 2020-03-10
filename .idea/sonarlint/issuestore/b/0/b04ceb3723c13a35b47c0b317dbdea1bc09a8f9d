@@ -1,0 +1,7 @@
+
+>
+java:S1170	"!Make this final field static too.(í¸ÇÐ8¯œŽªŠ.
+C
+java:S1170
+"!Make this final field static too.(ëªõˆùÿÿÿÿ8¯œŽªŠ.
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ê÷³€8³½š÷‹.

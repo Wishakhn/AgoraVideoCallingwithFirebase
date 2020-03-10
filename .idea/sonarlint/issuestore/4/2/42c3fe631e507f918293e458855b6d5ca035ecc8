@@ -1,0 +1,9 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ãóŸ·
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ê÷³€
+œ
+java:S1186I"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ð¸™áúÿÿÿÿ
+P
+java:S1068)"5Remove this unused "PERMISSION_REQ_ID" private field.(û¸ÝÎûÿÿÿÿ
+N
+java:S11445"8Remove this unused private "checkSelfPermission" method.(žÑ‚ô
