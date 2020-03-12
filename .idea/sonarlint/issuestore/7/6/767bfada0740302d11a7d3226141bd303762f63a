@@ -1,31 +1,31 @@
 
-\	java:S112´"FDefine and throw a dedicated exception instead of using a generic one.(ß°«Å
-l	java:S117ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰´ï‘úÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š©§öüÿÿÿÿ
 H
 java:S1128"-Remove this unused import 'java.util.Random'.(èøÉ›ùÿÿÿÿ
-E
-java:S1128"/Remove this unused import 'android.os.Handler'.(ûÛ’¡
-N
-java:S1128"3Remove this unused import 'io.agora.rtc.Constants'.(¯ÉÓÓøÿÿÿÿ
-S	java:S1066"9Replace this use of System.out or System.err by a logger.(Í’¦êúÿÿÿÿ
-e
-java:S1874<"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¥Ò—ûÿÿÿÿ
-W
-java:S1874="ARemove this use of "onFirstRemoteVideoDecoded"; it is deprecated.(Ž—áë
-S	java:S106A"9Replace this use of System.out or System.err by a logger.(ðÊ“Éøÿÿÿÿ
-N	java:S106M"9Replace this use of System.out or System.err by a logger.(¯†üš
 G
 java:S1172å"+Remove this unused method parameter "view".(„®úùÿÿÿÿ
-B
-java:S1172ì"+Remove this unused method parameter "view".(„üŽ»
-Y
-java:S3398h">Move this method into the anonymous class declared at line 48.(‘Ö°Æûÿÿÿÿ
-T
-java:S3398T">Move this method into the anonymous class declared at line 48.(ôŒÜÛ
-Y
-java:S3398t">Move this method into the anonymous class declared at line 48.(ôù¼îúÿÿÿÿ
+\	java:S112´"FDefine and throw a dedicated exception instead of using a generic one.(ß°«Å
+l	java:S117ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰´ï‘úÿÿÿÿ
 [
 java:S3398”"?Move this method into the anonymous class declared at line 147.(íÚïãøÿÿÿÿ
+N
+java:S1128"3Remove this unused import 'io.agora.rtc.Constants'.(¯ÉÓÓøÿÿÿÿ
+Y
+java:S3398t">Move this method into the anonymous class declared at line 48.(ôù¼îúÿÿÿÿ
+T
+java:S3398T">Move this method into the anonymous class declared at line 48.(ôŒÜÛ
 [
 java:S3398‚"?Move this method into the anonymous class declared at line 147.(œµšìýÿÿÿÿ
+N	java:S106M"9Replace this use of System.out or System.err by a logger.(¯†üš
+S	java:S1066"9Replace this use of System.out or System.err by a logger.(Í’¦êúÿÿÿÿ
+Y
+java:S3398h">Move this method into the anonymous class declared at line 48.(‘Ö°Æûÿÿÿÿ
+B
+java:S1172ì"+Remove this unused method parameter "view".(„üŽ»
+E
+java:S1128"/Remove this unused import 'android.os.Handler'.(ûÛ’¡
+W
+java:S1874="ARemove this use of "onFirstRemoteVideoDecoded"; it is deprecated.(Ž—áë
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š©§öüÿÿÿÿ
+S	java:S106A"9Replace this use of System.out or System.err by a logger.(ðÊ“Éøÿÿÿÿ
+e
+java:S1874<"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¥Ò—ûÿÿÿÿ

@@ -1,25 +1,37 @@
 
-\	java:S112¶"FDefine and throw a dedicated exception instead of using a generic one.(ß°«Å
-l	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰´ï‘úÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š©§öüÿÿÿÿ
-S	java:S1062"9Replace this use of System.out or System.err by a logger.(Í’¦êúÿÿÿÿ
 e
-java:S18748"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¥Ò—ûÿÿÿÿ
-W
-java:S18749"ARemove this use of "onFirstRemoteVideoDecoded"; it is deprecated.(Ž—áë
-S	java:S106="9Replace this use of System.out or System.err by a logger.(ðÊ“Éøÿÿÿÿ
-N	java:S106H"9Replace this use of System.out or System.err by a logger.(¯†üš
-G
-java:S1172ô"+Remove this unused method parameter "view".(„®úùÿÿÿÿ
+java:S1874@"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¥Ò—ûÿÿÿÿ
 B
-java:S1172û"+Remove this unused method parameter "view".(„üŽ»
+java:S1172í"+Remove this unused method parameter "view".(„üŽ»
+W
+java:S1874A"ARemove this use of "onFirstRemoteVideoDecoded"; it is deprecated.(Ž—áë
+b
+java:S3398Ó"?Move this method into the anonymous class declared at line 151.(ôù¼îúÿÿÿÿ8Öû¡Œ.
 Y
-java:S3398g">Move this method into the anonymous class declared at line 44.(‘Ö°Æûÿÿÿÿ
+java:S3398k">Move this method into the anonymous class declared at line 52.(‘Ö°Æûÿÿÿÿ
+l	java:S117ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰´ï‘úÿÿÿÿ
+w
+java:S1450&"ZRemove the "callendbtn1" field and declare it as a local variable in the relevant methods.(Ë®—þ8Ïˆÿ£Œ.
+S	java:S106:"9Replace this use of System.out or System.err by a logger.(Í’¦êúÿÿÿÿ
+G
+java:S1172æ"+Remove this unused method parameter "view".(„®úùÿÿÿÿ
 T
-java:S3398O">Move this method into the anonymous class declared at line 44.(Ù¼–é
+java:S3398W">Move this method into the anonymous class declared at line 52.(Ù¼–é
 [
-java:S3398£"?Move this method into the anonymous class declared at line 147.(íÚïãøÿÿÿÿ
+java:S3398©"?Move this method into the anonymous class declared at line 151.(íÚïãøÿÿÿÿ
+y
+java:S1450!"WRemove the "callname" field and declare it as a local variable in the relevant methods.(æ¯Ñ…üÿÿÿÿ8Æ¨å£Œ.
+¤
+java:S1186™"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ð÷‘Þÿÿÿÿÿ8‡„þŸŒ.
+¤
+java:S1186Š"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ð÷‘Þÿÿÿÿÿ8øù† Œ.
 [
-java:S3398‘"?Move this method into the anonymous class declared at line 147.(œµšìýÿÿÿÿ
-O
-java:S1144â"3Remove this unused private "oncallAttended" method.(ôù¼îúÿÿÿÿ
+java:S3398ƒ"?Move this method into the anonymous class declared at line 151.(œµšìýÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š©§öüÿÿÿÿ
+q
+java:S1450'"TRemove the "gtent" field and declare it as a local variable in the relevant methods.(ã·£ß8‚ãä£Œ.
+~
+java:S14501"\Remove the "setcallername" field and declare it as a local variable in the relevant methods.(·¶°´ùÿÿÿÿ8 Çå£Œ.
+S	java:S106E"9Replace this use of System.out or System.err by a logger.(ðÊ“Éøÿÿÿÿ
+N	java:S106P"9Replace this use of System.out or System.err by a logger.(¯†üš
+\	java:S112·"FDefine and throw a dedicated exception instead of using a generic one.(ß°«Å

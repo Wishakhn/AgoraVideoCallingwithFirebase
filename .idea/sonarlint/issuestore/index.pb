@@ -134,3 +134,9 @@ Tapp/src/main/java/com/testapp/videocallingwithsnich/Service/CallHandlingService
 Yapp/src/main/java/com/testapp/videocallingwithsnich/Activities/IncommingCallActivity.java,d\2\d223dea6d36dfcaef95205abd6b9b95a3e4c755f
 o
 ?app/src/main/java/com/testapp/videocallingwithsnich/Splash.java,8\2\8272356e261355f397ac63a9c73d908d9d644bb2
+[
++app/src/main/res/layout/activity_splash.xml,1\3\13b26b9b6631cddf289c5ab7c4e546a180da97d8
+Z
+*app/src/main/res/layout/activity_start.xml,8\3\832a04df3756998416c38e735b87a5d7f507674f
+v
+Fapp/src/main/java/com/testapp/videocallingwithsnich/LetsVideoCall.java,2\b\2b8405c23d5de54b5038c2b828a6e21bb9669fd7

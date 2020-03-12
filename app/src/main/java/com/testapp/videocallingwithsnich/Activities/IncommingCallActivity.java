@@ -27,25 +27,26 @@ import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
 import io.agora.rtc.video.VideoEncoderConfiguration;
 
-public class IncommingCallActivity extends AppCompatActivity {
-    private static final String TAG = "VIDEOCALL_TAG";
-    TextView callname;
-    TextView callstatus;
-    ImageView switchcamera;
-    ImageView mutebtn;
-    ImageView callingbtn;
-    Intent gtent;
-    FrameLayout smallvideocontainer;
-    FrameLayout callcameracontainer;
-    String setrecivername ="";
-    RelativeLayout callernameContainer;
+import static com.testapp.videocallingwithsnich.LetsVideoCall.VIDEO_CALL_LOG;
 
+public class IncommingCallActivity extends AppCompatActivity {
+    private TextView callname;
+    private TextView callstatus;
+    private ImageView switchcamera;
+    private ImageView mutebtn;
+    private ImageView callingbtn;
+    private ImageView callendbtn1;
+    private Intent gtent;
+    private FrameLayout smallvideocontainer;
+    private FrameLayout callcameracontainer;
+    private String setrecivername = "";
+    private RelativeLayout callernameContainer;
     private SurfaceView mLocalView;
     private SurfaceView mRemoteView;
     private RtcEngine mRtcEngine;
     private boolean mStartCall;
     private boolean mMuted;
-    String setcallername;
+    private String setcallername;
     private DatabaseReference databse;
 
     private final IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() {
@@ -84,9 +85,6 @@ public class IncommingCallActivity extends AppCompatActivity {
     };
 
     private void setupRemoteVideo(int uid) {
-        // Only one remote video view is available for this
-        // tutorial. Here we check if there exists a surface
-        // view tagged as this uid.
         int count = callcameracontainer.getChildCount();
         View view = null;
         for (int i = 0; i < count; i++) {
@@ -99,7 +97,6 @@ public class IncommingCallActivity extends AppCompatActivity {
         if (view != null) {
             return;
         }
-
         mRemoteView = RtcEngine.CreateRendererView(getBaseContext());
         callcameracontainer.addView(mRemoteView);
         mRtcEngine.setupRemoteVideo(new VideoCanvas(mRemoteView, VideoCanvas.RENDER_MODE_HIDDEN, uid));
@@ -126,6 +123,7 @@ public class IncommingCallActivity extends AppCompatActivity {
         initView();
         initEngineAndJoinChannel();
     }
+
     private void initView() {
         gtent = getIntent();
         callcameracontainer = findViewById(R.id.remote_video_view_container1);
@@ -135,17 +133,18 @@ public class IncommingCallActivity extends AppCompatActivity {
         switchcamera = findViewById(R.id.switchcamera1);
         mutebtn = findViewById(R.id.mutebtn1);
         callernameContainer = findViewById(R.id.callernameContainer1);
+        callendbtn1 = findViewById(R.id.callendbtn1);
         callingbtn = findViewById(R.id.callingbtn1);
         callingbtn.setOnClickListener(callListner);
         switchcamera.setVisibility(View.GONE);
         mutebtn.setVisibility(View.GONE);
         callstatus.setText("Calling . . . . .");
         if (gtent != null) {
-             setrecivername = gtent.getStringExtra("recivername");
-              setcallername = gtent.getStringExtra("callername");
-              String callerId = gtent.getStringExtra("callerid");
+            setrecivername = gtent.getStringExtra("recivername");
+            setcallername = gtent.getStringExtra("callername");
+            String callerId = gtent.getStringExtra("callerid");
             callname.setText(setcallername);
-            databse  = FirebaseDatabase.getInstance().getReference("Calls").child(callerId).child("callState");
+            databse = FirebaseDatabase.getInstance().getReference("Calls").child(callerId).child("callState");
         }
     }
 
@@ -157,7 +156,6 @@ public class IncommingCallActivity extends AppCompatActivity {
                 mStartCall = true;
                 callingbtn.setImageResource(R.drawable.btn_startcall_normal);
                 finish();
-
             } else {
                 startCall();
                 mStartCall = false;
@@ -166,13 +164,10 @@ public class IncommingCallActivity extends AppCompatActivity {
                 finishOnnoResponse();
             }
             showButtons(!mStartCall);
-
         }
     };
 
     private void initEngineAndJoinChannel() {
-        // This is our usual steps for joining
-        // a channel and starting a call.
         initializeEngine();
         setupVideoConfig();
         setupLocalVideo();
@@ -184,19 +179,13 @@ public class IncommingCallActivity extends AppCompatActivity {
         try {
             mRtcEngine = RtcEngine.create(getBaseContext(), getString(R.string.agora_app_id), mRtcEventHandler);
         } catch (Exception e) {
-            Log.e(TAG, Log.getStackTraceString(e));
+            Log.e(VIDEO_CALL_LOG, Log.getStackTraceString(e));
             throw new RuntimeException("NEED TO check rtc sdk init fatal error\n" + Log.getStackTraceString(e));
         }
     }
 
     private void setupVideoConfig() {
-        // In simple use cases, we only need to enable video capturing
-        // and rendering once at the initialization step.
-        // Note: audio recording and playing is enabled by default.
         mRtcEngine.enableVideo();
-
-        // Please go to this page for detailed explanation
-        // https://docs.agora.io/en/Video/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#af5f4de754e2c1f493096641c5c5c1d8f
         mRtcEngine.setVideoEncoderConfiguration(new VideoEncoderConfiguration(
                 VideoEncoderConfiguration.VD_640x360,
                 VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
@@ -205,13 +194,6 @@ public class IncommingCallActivity extends AppCompatActivity {
     }
 
     private void setupLocalVideo() {
-        // This is used to set a local preview.
-        // The steps setting local and remote view are very similar.
-        // But note that if the local user do not have a uid or do
-        // not care what the uid is, he can set his uid as ZERO.
-        // Our server will assign one and return the uid via the event
-        // handler callback function (onJoinChannelSuccess) after
-        // joining the channel successfully.
         mLocalView = RtcEngine.CreateRendererView(getBaseContext());
         mLocalView.setZOrderMediaOverlay(true);
         smallvideocontainer.addView(mLocalView);
@@ -219,17 +201,14 @@ public class IncommingCallActivity extends AppCompatActivity {
     }
 
     private void joinChannel() {
-        // 1. Users can only see each other after they join the
-        // same channel successfully using the same app id.
-        // 2. One token is only valid for the channel name that
-        // you use to generate this token.
         String token = getString(R.string.agora_access_token);
         if (TextUtils.isEmpty(token) || TextUtils.equals(token, "#YOUR ACCESS TOKEN#")) {
-            token = null; // default, no token
+            token = null;
         }
         mRtcEngine.joinChannel(token, setrecivername, "Extra Optional Data", 0);
     }
-    private void oncallAttended(){
+
+    private void oncallAttended() {
         callernameContainer.setVisibility(View.GONE);
         callcameracontainer.setVisibility(View.VISIBLE);
     }
@@ -244,7 +223,7 @@ public class IncommingCallActivity extends AppCompatActivity {
     }
 
     private void leaveChannel() {
-        if(mRtcEngine!=null)
+        if (mRtcEngine != null)
             mRtcEngine.leaveChannel();
     }
 
@@ -260,8 +239,7 @@ public class IncommingCallActivity extends AppCompatActivity {
     }
 
 
-
-    void finishOnnoResponse(){
+    void finishOnnoResponse() {
         int FinishTime = 10;
         int countDownInterval = 2000;
         CountDownTimer counterTimer = new CountDownTimer(FinishTime * 1000, countDownInterval) {
@@ -277,18 +255,18 @@ public class IncommingCallActivity extends AppCompatActivity {
         };
         counterTimer.start();
     }
+
     private void startCall() {
         databse.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 databse.setValue("connected");
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
-        });
+        }
+        );
         setupLocalVideo();
         joinChannel();
     }
@@ -299,12 +277,11 @@ public class IncommingCallActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 databse.setValue("disconnected");
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
-        });
+        }
+        );
         removeLocalVideo();
         removeRemoteVideo();
         leaveChannel();

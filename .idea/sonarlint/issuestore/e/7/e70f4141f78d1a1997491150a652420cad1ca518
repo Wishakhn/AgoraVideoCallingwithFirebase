@@ -1,6 +1,6 @@
 
-a
-java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(ºÖ
 k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š¸È™ÿÿÿÿÿ
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š©§öüÿÿÿÿ
+a
+java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(ºÖ
 7	java:S131""Add a default case to this switch.(ºÖ

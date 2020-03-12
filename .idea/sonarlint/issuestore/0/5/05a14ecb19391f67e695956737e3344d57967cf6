@@ -1,6 +1,20 @@
 
-v
-java:S1192¥"XDefine a constant instead of duplicating this literal "NotifitcationFromCaller" 3 times.(¨‹Ÿ8£ËÀĞŠ.
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¾®¾±úÿÿÿÿ8µÚ—÷‹.
-`
-java:S2259q"DA "NullPointerException" could be thrown; "intent" is nullable here.(ıÛ€8ÉÉóĞŠ.
+l
+java:S1128!"ORemove this unused import 'com.testapp.videocallingwithsnich.Models.CallModel'.(Ñ€Õ¤8ù¼ù˜Œ.
+g
+java:S1128"JRemove this unused import 'com.google.firebase.database.FirebaseDatabase'.(×Ë—8‰Úø˜Œ.
+n
+java:S1128"LRemove this unused import 'com.google.firebase.database.ValueEventListener'.(‹ŞÜ‹ıÿÿÿÿ8ù¼ù˜Œ.
+i
+java:S1128"GRemove this unused import 'com.google.firebase.database.DatabaseError'.(ˆÔµıÿÿÿÿ8ù¼ù˜Œ.
+v
+java:S1192“"XDefine a constant instead of duplicating this literal "NotifitcationFromCaller" 3 times.(¨‹Ÿ8‰©÷˜Œ.
+i
+java:S1192W"LDefine a constant instead of duplicating this literal "recivername" 3 times.(ãõ½­8©Éñ˜Œ.
+c
+java:S1128"FRemove this unused import 'com.google.firebase.database.DataSnapshot'.(şÇŒ„8ù¼ù˜Œ.
+h
+java:S1192W"KDefine a constant instead of duplicating this literal "callername" 3 times.(ãõ½­8—œò˜Œ.
+U
+java:S1128"8Remove this unused import 'androidx.annotation.NonNull'.(ˆÛúÜ8ù¼ù˜Œ.

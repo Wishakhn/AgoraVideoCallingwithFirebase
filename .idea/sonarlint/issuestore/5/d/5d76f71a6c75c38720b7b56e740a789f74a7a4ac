@@ -1,27 +1,34 @@
 
+A
+java:S2119¿"Save and re-use this "Random".(İê¨äşÿÿÿÿ8À•åÓŠ.
+[	java:S106Î"9Replace this use of System.out or System.err by a logger.(Ê®ÚÛùÿÿÿÿ8À•åÓŠ.
+V	java:S106»"9Replace this use of System.out or System.err by a logger.(–†¦›8À•åÓŠ.
 ¤
-java:S1186ï"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ğ÷‘Şÿÿÿÿÿ8À•åÓŠ.
-A
-java:S2119¹"Save and re-use this "Random".(İê¨äşÿÿÿÿ8À•åÓŠ.
+java:S1186ô"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ğ÷‘Şÿÿÿÿÿ8À•åÓŠ.
 h
-java:S1192K"FDefine a constant instead of duplicating this literal "Users" 3 times.(™šÛéùÿÿÿÿ8‚ë—¥Š.
-[	java:S106º"9Replace this use of System.out or System.err by a logger.(“¢âÅşÿÿÿÿ8™òâÓŠ.
-Z
-java:S1144ö"7Remove this unused private "stopCallingService" method.(ÈÄÉëûÿÿÿÿ8À•åÓŠ.
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š©§öüÿÿÿÿ8é¤ëò‹.
-V	java:S106È"9Replace this use of System.out or System.err by a logger.(Ó¨ƒ²8À•åÓŠ.
-[	java:S106É"9Replace this use of System.out or System.err by a logger.(Ê®ÚÛùÿÿÿÿ8À•åÓŠ.
-?	java:S131Š""Add a default case to this switch.(ºÖ8À•åÓŠ.
+java:S1192O"FDefine a constant instead of duplicating this literal "Users" 3 times.(™šÛéùÿÿÿÿ8‚ë—¥Š.
+[	java:S106í"9Replace this use of System.out or System.err by a logger.(Äøí”ıÿÿÿÿ8À•åÓŠ.
+A
+java:S2119Ï"Save and re-use this "Random".(ËüÇøÿÿÿÿ8À•åÓŠ.
+V	java:S106Á"9Replace this use of System.out or System.err by a logger.(œß”ò8À•åÓŠ.
+A
+java:S2119á"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8À•åÓŠ.
+?	java:S131‡""Add a default case to this switch.(ºÖ8À•åÓŠ.
+[	java:S106¿"9Replace this use of System.out or System.err by a logger.(“¢âÅşÿÿÿÿ8™òâÓŠ.
+K
+java:S1185‚"(Remove this method to simply inherit it.(èüù±ùÿÿÿÿ8¢ Ö˜Œ.
+V
+java:S1144ğ"8Remove this unused private "startCallingService" method.(Ë¦Ò¥8Ş»ĞŒ.
+V	java:S106Ì"9Replace this use of System.out or System.err by a logger.(ßëÊ8½¢Š¥Š.
 H
-java:S5411ç"*Use the primitive boolean expression here.(äø¼ö8À•åÓŠ.
-?	java:S131ƒ""Add a default case to this switch.(ºÖ8À•åÓŠ.
-V	java:S106¼"9Replace this use of System.out or System.err by a logger.(œß”ò8À•åÓŠ.
-V	java:S106Ç"9Replace this use of System.out or System.err by a logger.(ßëÊ8½¢Š¥Š.
-V	java:S106·"9Replace this use of System.out or System.err by a logger.(–†¦›8À•åÓŠ.
-V	java:S106ç"9Replace this use of System.out or System.err by a logger.(äˆ«Ç8À•åÓŠ.
-A
-java:S2119É"Save and re-use this "Random".(ËüÇøÿÿÿÿ8À•åÓŠ.
-A
-java:S2119Û"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8À•åÓŠ.
-V	java:S106æ"9Replace this use of System.out or System.err by a logger.(¾™ıœ8½¢Š¥Š.
-[	java:S106è"9Replace this use of System.out or System.err by a logger.(Äøí”ıÿÿÿÿ8À•åÓŠ.
+java:S5411ô"*Use the primitive boolean expression here.(äø¼ö8À•åÓŠ.
+V	java:S106ì"9Replace this use of System.out or System.err by a logger.(äˆ«Ç8À•åÓŠ.
+V	java:S106ë"9Replace this use of System.out or System.err by a logger.(¾™ıœ8½¢Š¥Š.
+?	java:S131""Add a default case to this switch.(ºÖ8À•åÓŠ.
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š©§öüÿÿÿÿ8é¤ëò‹.
+V	java:S106Í"9Replace this use of System.out or System.err by a logger.(Ó¨ƒ²8À•åÓŠ.
+Z
+java:S1144…"7Remove this unused private "stopCallingService" method.(ÈÄÉëûÿÿÿÿ8—£Õ˜Œ.
+]	java:S125z"<This block of commented-out lines of code should be removed.(É…¡¶øÿÿÿÿ8Êò¬›Œ.
+o
+java:S1192¬"LDefine a constant instead of duplicating this literal "recivername" 3 times.(·ç”êşÿÿÿÿ8½ÚÏŒ.
