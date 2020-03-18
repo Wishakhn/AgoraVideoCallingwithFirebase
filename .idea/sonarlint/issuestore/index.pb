@@ -80,8 +80,6 @@ X
 (app/src/main/res/drawable/rounded_bg.xml,b\f\bff029373e939fbc0fa1cad77f6ffb02bbc14ec2
 ]
 -app/src/main/res/drawable/rounded_bg_blue.xml,a\b\ab9c2082589bc95adf5c135214e3c36ef2ab9b27
-Y
-)app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
 \
 ,app/src/main/res/layout/activity_sign_up.xml,b\3\b32acfa5b25626d9cecbf5439a9ef6b8a5e6aa51
 ^

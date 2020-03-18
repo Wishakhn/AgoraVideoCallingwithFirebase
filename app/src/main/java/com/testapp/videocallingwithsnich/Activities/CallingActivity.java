@@ -1,5 +1,6 @@
 package com.testapp.videocallingwithsnich.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.testapp.videocallingwithsnich.R;
 
 import java.util.Random;
@@ -43,8 +51,10 @@ public class CallingActivity extends AppCompatActivity {
     private RtcEngine mRtcEngine;
     private boolean mCallEnd;
     private boolean mMuted;
-
-
+    String userId;
+    FirebaseUser user;
+    FirebaseAuth auth;
+    private DatabaseReference databse;
     private final IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() {
         @Override
         public void onJoinChannelSuccess(String channel, final int uid, int elapsed) {
@@ -129,6 +139,10 @@ private void oncallAttended(){
     }
     private void initView() {
         gtent = getIntent();
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+        userId = user.getUid();
+
         callcameracontainer = findViewById(R.id.remote_video_view_container);
         smallvideocontainer = findViewById(R.id.local_video_view_container);
         callname = findViewById(R.id.callname);
@@ -140,27 +154,20 @@ private void oncallAttended(){
         callingbtn.setOnClickListener(callListner);
         if (gtent != null) {
              setcallername = gtent.getStringExtra("recivername");
+             String receiverId = gtent.getStringExtra("reciverid");
+             String callId = userId+"_"+receiverId;
             callname.setText(setcallername);
+            databse = FirebaseDatabase.getInstance().getReference("Calls").child(callId).child("callState");
         }
     }
 
     private View.OnClickListener callListner = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (mCallEnd) {
-                startCall();
-                mCallEnd = false;
-                callingbtn.setImageResource(R.drawable.btn_endcall_normal);
-                finishOnnoResponse();
-            } else {
                 endCall();
                 mCallEnd = true;
-                callingbtn.setImageResource(R.drawable.btn_startcall_normal);
+                callingbtn.setImageResource(R.drawable.btn_endcall_pressed);
                 finish();
-            }
-
-            showButtons(!mCallEnd);
-
         }
     };
 
@@ -255,12 +262,18 @@ private void oncallAttended(){
         };
         counterTimer.start();
     }
-    private void startCall() {
-        setupLocalVideo(smallvideocontainer);
-        joinChannel();
-    }
-
     private void endCall() {
+        databse.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                   @Override
+                                                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                       databse.setValue("disconnected");
+                                                   }
+
+                                                   @Override
+                                                   public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                   }
+                                               }
+        );
         removeLocalVideo();
         removeRemoteVideo();
         leaveChannel();
@@ -271,11 +284,5 @@ private void oncallAttended(){
             smallvideocontainer.removeView(mLocalView);
         }
         mLocalView = null;
-    }
-
-    private void showButtons(boolean show) {
-        int visibility = show ? View.VISIBLE : View.GONE;
-        mutebtn.setVisibility(visibility);
-        switchcamera.setVisibility(visibility);
     }
 }

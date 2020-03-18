@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     List<callLogModel> calls;
     ImageView menubtn;
     LinearLayout logoutbtn;
+    String callername="Unknown Number";
     int show = 0;
     ArrayList<UserModel> totallist;
     ArrayList<UserModel> malelist;
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         userId = user.getUid();
+
         reference = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
         containerOptions = findViewById(R.id.containerOptions);
         prefsManager = new PrefernceManager(MainActivity.this);
@@ -171,9 +173,9 @@ public class MainActivity extends AppCompatActivity {
         callbtn.setBackgroundColor(getResources().getColor(R.color.fadeblue));
         userbtn.setBackgroundColor(getResources().getColor(R.color.transparent));
         loadCalllist();
-        callLogadapter cAdapter = new callLogadapter(calls);
+     /*   callLogadapter cAdapter = new callLogadapter(calls);
         itemcontainer.setAdapter(cAdapter);
-        cAdapter.notifyDataSetChanged();
+        cAdapter.notifyDataSetChanged();*/
     }
 
     private void loadUserlist() {
@@ -218,12 +220,42 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadCalllist() {
         calls.clear();
-        calls.add(new callLogModel("35 mins", "Gippy Girewal"));
-        calls.add(new callLogModel("1 hr 2 mins", "Honney Singh"));
-        calls.add(new callLogModel("10 mins", "Gippy Girewal"));
-        calls.add(new callLogModel("0 min", "Sophiee"));
-        calls.add(new callLogModel("35 mins", "Bohemiea"));
         loading.setVisibility(View.GONE);
+        reference = FirebaseDatabase.getInstance().getReference("Calls");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren())
+                {
+                    CallModel modelCall = snapshot.getValue(CallModel.class);
+                    String callerId = modelCall.getCallerId();
+                    String recieverId = modelCall.getReciverId();
+                    String duration = modelCall.getCallDur();
+                    String caller = modelCall.getCallerName();
+                    String reciever = modelCall.getReciverName();
+                    if (userId.equalsIgnoreCase(recieverId)){
+                        callLogModel incoming = new callLogModel(duration,caller,"Incoming");
+                        calls.add(incoming);
+                    }
+                    else if (userId.equalsIgnoreCase(callerId)){
+                        callLogModel outgoing = new callLogModel(duration,reciever,"Outgoing");
+                        calls.add(outgoing);
+                    }
+                }
+                callLogadapter adapter = new callLogadapter(calls);
+                adapter.notifyDataSetChanged();
+                itemcontainer.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
     }
 
@@ -236,7 +268,8 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("User model id is ::" + umodel.getUserId());
                 System.out.println("User model name is ::" + umodel.getUsername());
                 assert umodel != null;
-                userTitle.setText(umodel.getUsername());
+                callername = umodel.getUsername();
+                userTitle.setText(callername);
 
             }
 
@@ -284,9 +317,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createCallingDatabase(final String rname, final String rId) {
-        reference = FirebaseDatabase.getInstance().getReference("Calls").child(userId);
+        String callID = userId+"_"+rId;
+        reference = FirebaseDatabase.getInstance().getReference("Calls").child(callID);
         HashMap<String, String> hashmap = new HashMap<>();
-        hashmap.put("callerName", user.getDisplayName());
+        hashmap.put("callerName", callername);
         hashmap.put("callerId", user.getUid());
         hashmap.put("ReciverName", rname);
         hashmap.put("reciverId", rId);

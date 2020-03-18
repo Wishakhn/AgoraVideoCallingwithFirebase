@@ -7,9 +7,11 @@ public class CallModel {
     private String reciverId;
     private String callState;
     private String callDur;
+    private String callType;
 
     public CallModel() {
     }
+
 
     public CallModel(String callerName, String callerId, String reciverName, String reciverId, String callState, String callDur) {
         this.callerName = callerName;
@@ -18,6 +20,24 @@ public class CallModel {
         this.reciverId = reciverId;
         this.callState = callState;
         this.callDur = callDur;
+    }
+
+    public CallModel(String callerName, String callerId, String reciverName, String reciverId, String callState, String callDur, String callType) {
+        this.callerName = callerName;
+        this.callerId = callerId;
+        ReciverName = reciverName;
+        this.reciverId = reciverId;
+        this.callState = callState;
+        this.callDur = callDur;
+        this.callType = callType;
+    }
+
+    public String getCallType() {
+        return callType;
+    }
+
+    public void setCallType(String callType) {
+        this.callType = callType;
     }
 
     public String getCallerName() {

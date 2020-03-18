@@ -9,6 +9,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -48,6 +49,7 @@ public class IncommingCallActivity extends AppCompatActivity {
     private boolean mMuted;
     private String setcallername;
     private DatabaseReference databse;
+    private LinearLayout pickcallLayout;
 
     private final IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() {
         @Override
@@ -128,12 +130,14 @@ public class IncommingCallActivity extends AppCompatActivity {
         gtent = getIntent();
         callcameracontainer = findViewById(R.id.remote_video_view_container1);
         smallvideocontainer = findViewById(R.id.local_video_view_container1);
+        pickcallLayout = findViewById(R.id.pickcallLayout);
         callname = findViewById(R.id.callname1);
         callstatus = findViewById(R.id.callstatus1);
         switchcamera = findViewById(R.id.switchcamera1);
         mutebtn = findViewById(R.id.mutebtn1);
         callernameContainer = findViewById(R.id.callernameContainer1);
         callendbtn1 = findViewById(R.id.callendbtn1);
+        callendbtn1.setOnClickListener(callendListener);
         callingbtn = findViewById(R.id.callingbtn1);
         callingbtn.setOnClickListener(callListner);
         switchcamera.setVisibility(View.GONE);
@@ -143,27 +147,33 @@ public class IncommingCallActivity extends AppCompatActivity {
             setrecivername = gtent.getStringExtra("recivername");
             setcallername = gtent.getStringExtra("callername");
             String callerId = gtent.getStringExtra("callerid");
+            String reciverid = gtent.getStringExtra("reciverid");
+            String callId = callerId+"_"+reciverid;
             callname.setText(setcallername);
-            databse = FirebaseDatabase.getInstance().getReference("Calls").child(callerId).child("callState");
+            databse = FirebaseDatabase.getInstance().getReference("Calls").child(callId).child("callState");
         }
     }
 
     private View.OnClickListener callListner = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (mStartCall) {
-                endCall();
-                mStartCall = true;
-                callingbtn.setImageResource(R.drawable.btn_startcall_normal);
-                finish();
-            } else {
-                startCall();
-                mStartCall = false;
-                callingbtn.setImageResource(R.drawable.btn_endcall_normal);
-                oncallAttended();
-                finishOnnoResponse();
-            }
-            showButtons(!mStartCall);
+            startCall();
+            mStartCall = false;
+            callingbtn.setImageResource(R.drawable.btn_endcall_normal);
+            oncallAttended();
+            finishOnnoResponse();
+            pickcallLayout.setVisibility(View.GONE);
+            switchcamera.setVisibility(View.VISIBLE);
+            mutebtn.setVisibility(View.VISIBLE);
+        }
+    };
+    private View.OnClickListener callendListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            endCall();
+            mStartCall = true;
+            callingbtn.setImageResource(R.drawable.btn_startcall_normal);
+            finish();
         }
     };
 
@@ -258,14 +268,15 @@ public class IncommingCallActivity extends AppCompatActivity {
 
     private void startCall() {
         databse.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                databse.setValue("connected");
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        }
+                                                   @Override
+                                                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                       databse.setValue("connected");
+                                                   }
+
+                                                   @Override
+                                                   public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                   }
+                                               }
         );
         setupLocalVideo();
         joinChannel();
@@ -273,14 +284,15 @@ public class IncommingCallActivity extends AppCompatActivity {
 
     private void endCall() {
         databse.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                databse.setValue("disconnected");
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        }
+                                                   @Override
+                                                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                       databse.setValue("disconnected");
+                                                   }
+
+                                                   @Override
+                                                   public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                   }
+                                               }
         );
         removeLocalVideo();
         removeRemoteVideo();
