@@ -84,8 +84,6 @@ X
 ,app/src/main/res/layout/activity_sign_up.xml,b\3\b32acfa5b25626d9cecbf5439a9ef6b8a5e6aa51
 ^
 .app/src/main/res/layout/in_channel_message.xml,c\0\c0b661c18e6b3d8de971a02460c00d2fdb416206
-[
-+app/src/main/res/layout/log_item_layout.xml,1\9\19be2d6d1f6798ba64ec1415d728d68b133bd264
 ]
 -app/src/main/res/layout/user_control_mask.xml,c\8\c811c3a56a61a7e631700b88961e14d45a94f156
 T

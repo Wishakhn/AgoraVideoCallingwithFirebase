@@ -230,22 +230,38 @@
 </RelativeLayout>
 </LinearLayout>
     <LinearLayout
-        android:id="@+id/logoutbtn"
         android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/optionback"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="50dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingHorizontal="20dp"
         android:gravity="center"
-        android:visibility="gone"
-        android:onClick="changeScreen"
+        android:visibility="visible"
+        android:orientation="vertical"
         android:layout_marginRight="30dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/logoutbtn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LOGOUT"
             android:textColor="@color/purple"
-            android:textSize="26sp"
+            android:onClick="changeScreen"
+            android:textSize="16sp"
+            android:layout_gravity="center"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+        <TextView
+            android:id="@+id/profilebtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PROFILE"
+            android:textColor="@color/purple"
+            android:textSize="16sp"
+            android:onClick="changeScreen"
             android:layout_gravity="center"/>
     </LinearLayout>
 </RelativeLayout>

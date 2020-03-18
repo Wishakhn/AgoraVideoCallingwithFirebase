@@ -154,7 +154,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.logoutbtn:
                 logOut();
                 break;
+            case R.id.profilebtn:
+                visitProfile();
+                break;
         }
+    }
+
+    private void visitProfile() {
+
     }
 
     private void userLoader() {
